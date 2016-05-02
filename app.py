@@ -8,7 +8,7 @@ import os
 
 @route('/')
 def index():
-	return "<h1>WOOTV3</h1>"
+	return "<h1> hello OpenShift Ninja without DB</h1>"
 
 # since this is a read only talk to the replicas
 @get('/db')
@@ -27,6 +27,9 @@ def dbexample():
 	result_string = "<h2>Here are your results: </h2>"
 	for row in rows:
 		result_string += "<h3>" + str(row[0]) + ", " + str(row[1]) + ", " + str(row[2]) + "</h3>"
+
+	cur.close()
+	conn.close()
 
 	return  result_string
 
